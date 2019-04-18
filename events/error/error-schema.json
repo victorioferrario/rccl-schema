@@ -1,0 +1,161 @@
+{
+  "definitions": {},
+  "$schema": "",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "Telemetry Error Event Schema",
+  "description": "The object is created when an error occurs.",
+  "default": null,
+  "required": [
+    "datetime",
+    "evtType",
+    "feature",
+    "source",
+    "vers",
+    "errId",
+    "env",
+    "userId"
+  ],
+  "properties": {
+    "datetime": {
+      "$id": "#/properties/datetime",
+      "type": "string",
+      "title": "The Datetime Schema",
+      "default": "",
+      "examples": ["2018-10-16T10:14:38.335122-04:00"],
+      "pattern": "^(.*)$"
+    },
+    "evtType": {
+      "$id": "#/properties/evtType",
+      "type": "string",
+      "title": "The Evttype Schema",
+      "description": "The type of telemetry event",
+      "default": "",
+      "examples": ["Error", "Request", "Response"],
+      "pattern": "^(.*)$"
+    },
+    "feature": {
+      "$id": "#/properties/feature",
+      "type": "string",
+      "title": "The Feature Schema",
+      "default": "",
+      "examples": ["GA", "Core", "Etc.."],
+      "pattern": "^(.*)$"
+    },
+    "source": {
+      "$id": "#/properties/source",
+      "type": "string",
+      "title": "The Source Schema",
+      "default": "",
+      "examples": ["ProfileService"],
+      "pattern": "^(.*)$"
+    },
+    "vers": {
+      "$id": "#/properties/vers",
+      "type": "string",
+      "title": "The Vers Schema",
+      "default": "",
+      "examples": ["1.3.13"],
+      "pattern": "^(.*)$"
+    },
+    "errId": {
+      "$id": "#/properties/errId",
+      "type": "string",
+      "title": "The Errid Schema",
+      "description": "Internal Error id mnemonic defined by 'source' that is recording the error.",
+      "default": "",
+      "examples": ["ForgeRockFailure", "InvalidEmailAddr"],
+      "pattern": "^(.*)$"
+    },
+    "errMsg": {
+      "$id": "#/properties/errMsg",
+      "type": "string",
+      "title": "The Errmsg Schema",
+      "description": "A message for staff (not customers) explaining the error. Customer-facing error text will need to be language dependent and translated.",
+      "default": "",
+      "examples": [
+        "Call to ForgeRock to GET user profile failed with 500 status.",
+        "Invalid reservation date range for this request"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "stack": {
+      "$id": "#/properties/stack",
+      "type": "string",
+      "title": "The Stack Schema",
+      "description": "A language-dependent stack trace of where the error occurred.",
+      "default": "",
+      "examples": ["...stack trace here..."],
+      "pattern": "^(.*)$"
+    },
+    "context": {
+      "$id": "#/properties/context",
+      "type": "string",
+      "title": "The Context Schema",
+      "description": "A string for context from source's perspective, usually it includes a string of key/value pair encoded data. Used to supply additional context for troubleshooting purposes.",
+      "default": "",
+      "examples": ["vdsId=G7010131"],
+      "pattern": "^(.*)$"
+    },
+    "eventId": {
+      "$id": "#/properties/eventId",
+      "type": "string",
+      "title": "The Eventid Schema",
+      "description": "UUID unique for this event. If event is created via our libraries, this will be generated automatically.",
+      "default": "",
+      "examples": ["56c790bc-a2e1-4eb7-92c2-8129b59bc1c9"],
+      "pattern": "^(.*)$"
+    },
+    "traceId": {
+      "$id": "#/properties/traceId",
+      "type": "string",
+      "title": "The Traceid Schema",
+      "description": "The Excalibur TraceId in string format for a request sent from client to server.",
+      "default": "",
+      "examples": ["e4db12f2-b176-432a-a7a6-8bb3ed08beeb"],
+      "pattern": "^(.*)$"
+    },
+    "env": {
+      "$id": "#/properties/env",
+      "type": "string",
+      "title": "The Env Schema",
+      "description": "The environment where the software is deployed. Must be a shipcode, 'dev', 'test', 'staging' or 'AWS'.",
+      "default": "",
+      "examples": ["AWS", "AL", "Test"],
+      "pattern": "^(.*)$"
+    },
+    "device": {
+      "$id": "#/properties/device",
+      "type": "string",
+      "title": "The Device Schema",
+      "default": "",
+      "examples": [""],
+      "pattern": "^(.*)$"
+    },
+    "platform": {
+      "$id": "#/properties/platform",
+      "type": "string",
+      "title": "The Platform Schema",
+      "description": "Platform of the source application or service.\t",
+      "default": "",
+      "examples": ["ios", "android", "web"],
+      "pattern": "^(.*)$"
+    },
+    "userId": {
+      "$id": "#/properties/userId",
+      "type": "string",
+      "title": "The Userid Schema",
+      "default": "",
+      "examples": ["G7010131"],
+      "pattern": "^(.*)$"
+    },
+    "sessionId": {
+      "$id": "#/properties/sessionId",
+      "type": "string",
+      "title": "The Sessionid Schema",
+      "default": "",
+      "examples": ["9a0fa33b-e292-46b1-8d34-660d0c35d64f"],
+      "pattern": "^(.*)$"
+    }
+  }
+}

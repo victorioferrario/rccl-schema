@@ -1,0 +1,174 @@
+{
+  "definitions": {},
+  "$schema": "",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "Telemetry Response Event",
+  "description": "Services record their responses to incoming requests as Response telemetry events. ",
+  "default": null,
+  "required": [
+    "datetime",
+    "evtType",
+    "feature",
+    "source",
+    "vers",
+    "status",
+    "success",
+    "latency",
+    "dest",
+    "operation",
+    "traceId",
+    "env",
+    "userId"
+  ],
+  "properties": {
+    "datetime": {
+      "$id": "#/properties/datetime",
+      "type": "string",
+      "title": "The Datetime Schema",
+      "default": "",
+      "examples": ["2018-10-16T10:14:38.335122-04:00"],
+      "pattern": "^(.*)$"
+    },
+    "evtType": {
+      "$id": "#/properties/evtType",
+      "type": "string",
+      "title": "The Evttype Schema",
+      "default": "",
+      "examples": ["Response"],
+      "pattern": "^(.*)$"
+    },
+    "feature": {
+      "$id": "#/properties/feature",
+      "type": "string",
+      "title": "The Feature Schema",
+      "default": "",
+      "examples": ["GA"],
+      "pattern": "^(.*)$"
+    },
+    "source": {
+      "$id": "#/properties/source",
+      "type": "string",
+      "title": "The Source Schema",
+      "default": "",
+      "examples": ["Excalibur-Web-App"],
+      "pattern": "^(.*)$"
+    },
+    "vers": {
+      "$id": "#/properties/vers",
+      "type": "string",
+      "title": "The Vers Schema",
+      "default": "",
+      "examples": ["1.3.13"],
+      "pattern": "^(.*)$"
+    },
+    "status": {
+      "$id": "#/properties/status",
+      "type": "integer",
+      "title": "The Status Schema",
+      "default": 0,
+      "examples": [200]
+    },
+    "success": {
+      "$id": "#/properties/success",
+      "type": "boolean",
+      "title": "The Success Schema",
+      "default": false,
+      "examples": [true]
+    },
+    "latency": {
+      "$id": "#/properties/latency",
+      "type": "integer",
+      "title": "The Latency Schema",
+      "description": "Number of milliseconds to service the request from start to completion from service's perspective. A value be present on successful and failed requests.",
+      "default": 0,
+      "examples": [380]
+    },
+    "dest": {
+      "$id": "#/properties/dest",
+      "type": "string",
+      "title": "The Dest Schema",
+      "description": "Name of service or 3rd party server this request was sent do. This can be a mnemonic (e.g. ForgeRock). Use consistent names for mnemonics.",
+      "default": "",
+      "examples": ["ProfileBookings"],
+      "pattern": "^(.*)$"
+    },
+    "operation": {
+      "$id": "#/properties/operation",
+      "type": "string",
+      "title": "The Operation Schema",
+      "description": "Service operation name. Create a mnemonic name if framework doesn't have similar method name. (e.g. ForgeRockGetUser ). This value shows up in dashboards and alerts, this value helps when troubleshoot",
+      "default": "",
+      "examples": ["GetProfile", "FindProfile", "FindUserById"],
+      "pattern": "^(.*)$"
+    },
+    "context": {
+      "$id": "#/properties/context",
+      "type": "string",
+      "title": "The Context Schema",
+      "description": "A string for context from source's perspective, usually it includes a string of key/value pair encoded data. Specific to the response.",
+      "default": "",
+      "examples": ["signinSuccess=false, notifiedSecurity=true"],
+      "pattern": "^(.*)$"
+    },
+    "eventId": {
+      "$id": "#/properties/eventId",
+      "type": "string",
+      "title": "The Eventid Schema",
+      "description": "UUID unique for this event. If event is created via our libraries, this will be generated automatically. If event is generated within a metrics system (e.g. Prometheus) this value may not be present.",
+      "default": "",
+      "examples": ["56c790bc-a2e1-4eb7-92c2-8129b59bc1c9"],
+      "pattern": "^(.*)$"
+    },
+    "traceId": {
+      "$id": "#/properties/traceId",
+      "type": "string",
+      "title": "The Traceid Schema",
+      "description": "The Excalibur TraceId in string format for a request sent from client to server. See Telemetry Trace Identity for more information.  ",
+      "default": "",
+      "examples": ["e4db12f2-b176-432a-a7a6-8bb3ed08beeb"],
+      "pattern": "^(.*)$"
+    },
+    "env": {
+      "$id": "#/properties/env",
+      "type": "string",
+      "title": "The Env Schema",
+      "default": "",
+      "examples": ["AWS"],
+      "pattern": "^(.*)$"
+    },
+    "device": {
+      "$id": "#/properties/device",
+      "type": "string",
+      "title": "The Device Schema",
+      "default": "",
+      "examples": ["desktop"],
+      "pattern": "^(.*)$"
+    },
+    "platform": {
+      "$id": "#/properties/platform",
+      "type": "string",
+      "title": "The Platform Schema",
+      "default": "",
+      "examples": ["ios"],
+      "pattern": "^(.*)$"
+    },
+    "userId": {
+      "$id": "#/properties/userId",
+      "type": "string",
+      "title": "The Userid Schema",
+      "description": "Required if user id available.  The user id (or VDS id) of the user who is initiated the transaction.\t",
+      "default": "",
+      "examples": ["G7010131"],
+      "pattern": "^(.*)$"
+    },
+    "sessionId": {
+      "$id": "#/properties/sessionId",
+      "type": "string",
+      "title": "The Sessionid Schema",
+      "default": "",
+      "examples": ["9a0fa33b-e292-46b1-8d34-660d0c35d64f"],
+      "pattern": "^(.*)$"
+    }
+  }
+}

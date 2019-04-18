@@ -1,0 +1,204 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "Telemetry Request Event",
+  "description": "Request Events are used to track simple metrics information when micro-services or applications make outgoing requests.",
+  "required": [
+    "datetime",
+    "evtType",
+    "feature",
+    "source",
+    "vers",
+    "dest",
+    "operation",
+    "method",
+    "path",
+    "latency",
+    "status",
+    "success",
+    "traceId",
+    "env",
+    "userId"
+  ],
+  "properties": {
+    "datetime": {
+      "$id": "#/properties/datetime",
+      "type": "string",
+      "title": "The Datetime Schema",
+      "default": "",
+      "examples": ["2018-10-16T10:14:38.335122-04:00"],
+      "pattern": "^(.*)$"
+    },
+    "evtType": {
+      "$id": "#/properties/evtType",
+      "type": "string",
+      "title": "The Evttype Schema",
+      "description": "The type of telemetry event.",
+      "default": "",
+      "examples": ["Request"],
+      "pattern": "^(.*)$"
+    },
+    "feature": {
+      "$id": "#/properties/feature",
+      "type": "string",
+      "title": "The Feature Schema",
+      "default": "",
+      "examples": ["GA", "Core"],
+      "pattern": "^(.*)$"
+    },
+    "source": {
+      "$id": "#/properties/source",
+      "type": "string",
+      "title": "The Source Schema",
+      "default": "",
+      "examples": ["Excalibur-Web-App"],
+      "pattern": "^(.*)$"
+    },
+    "vers": {
+      "$id": "#/properties/vers",
+      "type": "string",
+      "title": "The Vers Schema",
+      "default": "",
+      "examples": ["1.3.13"],
+      "pattern": "^(.*)$"
+    },
+    "dest": {
+      "$id": "#/properties/dest",
+      "type": "string",
+      "title": "The Dest Schema",
+      "description": "Name of service or 3rd party server this request was sent do. This can be a mnemonic (e.g. ForgeRock). Use consistent names for mnemonics.",
+      "default": "",
+      "examples": ["ProfileBookings"],
+      "pattern": "^(.*)$"
+    },
+    "operation": {
+      "$id": "#/properties/operation",
+      "type": "string",
+      "title": "The Operation Schema",
+      "description": "Mnemonic id of this request calls. This is a unique derived value to make it easier for dashboards and alerts to make it easy to distinguish.",
+      "default": "",
+      "examples": ["GetProfile", "SaveReservation"],
+      "pattern": "^(.*)$"
+    },
+    "method": {
+      "$id": "#/properties/method",
+      "type": "string",
+      "title": "The Method Schema",
+      "description": "Method of HTTP call (GET, POST, PUT, DELETE, etc.) if REST call.",
+      "default": "",
+      "examples": ["GET", "POST", "PUT"],
+      "pattern": "^(.*)$"
+    },
+    "context": {
+      "$id": "#/properties/context",
+      "type": "string",
+      "title": "The Context Schema",
+      "description": "A string for context from source's perspective, usually it includes a string of key/value pair encoded data. Specific to the request being made.",
+      "default": "",
+      "examples": ["vdsId=G7010131"],
+      "pattern": "^(.*)$"
+    },
+    "path": {
+      "$id": "#/properties/path",
+      "type": "string",
+      "title": "The Path Schema",
+      "description": "Base path of request. Do not include http://hostname:port/ portion of the url in path. (required if a REST API call)",
+      "default": "",
+      "examples": ["/api/v1/profile/1234"],
+      "pattern": "^(.*)$"
+    },
+    "retries": {
+      "$id": "#/properties/retries",
+      "type": "integer",
+      "title": "The Retries Schema",
+      "description": "If caller had to make multiple calls to retry due to failure, record number of retries here. Dimension not present if value is zero.",
+      "default": 0,
+      "examples": [0]
+    },
+    "latency": {
+      "$id": "#/properties/latency",
+      "type": "integer",
+      "title": "The Latency Schema",
+      "description": "The metric floating point value for the time it took in milliseconds for request to complete. IMPORTANT: your timestamp should be measured from the start of your request (not the end of the request) ",
+      "default": 0,
+      "examples": [380]
+    },
+    "status": {
+      "$id": "#/properties/status",
+      "type": "integer",
+      "title": "The Status Schema",
+      "description": "HTTP response code returned by service called if REST. Otherwise an integer to represent status of calling the operation. (required if a REST API call)",
+      "default": 0,
+      "examples": ["200", "401", "500"]
+    },
+    "success": {
+      "$id": "#/properties/success",
+      "type": "boolean",
+      "title": "The Success Schema",
+      "default": false,
+      "examples": [true]
+    },
+    "eventId": {
+      "$id": "#/properties/eventId",
+      "type": "string",
+      "title": "The Eventid Schema",
+      "description": "UUID unique for this event. If event is created via our libraries, this will be generated automatically.",
+      "default": "",
+      "examples": ["56c790bc-a2e1-4eb7-92c2-8129b59bc1c9"],
+      "pattern": "^(.*)$"
+    },
+    "traceId": {
+      "$id": "#/properties/traceId",
+      "type": "string",
+      "title": "The Traceid Schema",
+      "description": "The Excalibur TraceId in string format for a request sent from client to server.",
+      "default": "",
+      "examples": ["e4db12f2-b176-432a-a7a6-8bb3ed08beeb"],
+      "pattern": "^(.*)$"
+    },
+    "env": {
+      "$id": "#/properties/env",
+      "type": "string",
+      "title": "The Env Schema",
+      "description": "The environment where the software is deployed. Must be a shipcode, 'dev', 'test', 'staging' or 'AWS'.",
+      "default": "",
+      "examples": ["AWS", "AL", "Test"],
+      "pattern": "^(.*)$"
+    },
+    "device": {
+      "$id": "#/properties/device",
+      "type": "string",
+      "title": "The Device Schema",
+      "default": "",
+      "examples": [""],
+      "pattern": "^(.*)$"
+    },
+    "platform": {
+      "$id": "#/properties/platform",
+      "type": "string",
+      "title": "The Platform Schema",
+      "description": "Platform of the source application or service.\t",
+      "default": "",
+      "examples": ["ios", "android", "web"],
+      "pattern": "^(.*)$"
+    },
+    "userId": {
+      "$id": "#/properties/userId",
+      "type": "string",
+      "title": "The Userid Schema",
+      "default": "",
+      "examples": ["G7010131"],
+      "pattern": "^(.*)$"
+    },
+    "sessionId": {
+      "$id": "#/properties/sessionId",
+      "type": "string",
+      "title": "The Sessionid Schema",
+      "default": "",
+      "examples": ["9a0fa33b-e292-46b1-8d34-660d0c35d64f"],
+      "pattern": "^(.*)$"
+    }
+  }
+}
